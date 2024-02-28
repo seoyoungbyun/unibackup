@@ -1,4 +1,5 @@
 <%--컴퓨터학과 20220769 변서영 --%>
+<%--웹프 기말과제 --%>
 <%--Microsoft Edge에 최적화되어있습니다. --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
