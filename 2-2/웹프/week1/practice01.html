@@ -1,0 +1,100 @@
+<!--컴퓨터학과 20220769 변서영
+microsoft edge에 최적화 된 프로그램입니다.-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>컴퓨터학과 2학년 시간표</title>
+</head>
+<style>
+    table{
+        border-collapse: collapse;
+    }
+
+    table, th, td{
+        border: 1px solid black;
+    }
+    caption {
+        font-size: 20px;
+        font-weight: bold;
+
+    }
+    th, td {
+        width: 90px;
+        height : 50px;
+    }
+    th{
+        font-size: 20px;
+    }
+    td{
+        font-size: 13px;
+        text-align: center;
+    }
+
+    td.yellow {
+        background-color: #f5e198;
+    }
+    td.blue {
+        background-color: #bcccfa;
+    }
+    td.gray {
+        background-color: #bdbdbd;
+    }
+</style>
+<body>
+    <div align = "center">
+        <table>
+            <caption><p>강의 시간표</p></caption>
+            <tr>
+                <th>2학년</th>
+                <th>월</th>
+                <th>화</th>
+                <th>수</th>
+                <th>목</th>
+                <th>금</th>
+            </tr>
+            <tr>
+                <th>1</th>
+                <td></td>
+                <td rowspan = "2" class = "yellow">자료구조</td>
+                <td class = "yellow">네트워크</td>
+                <td></td>
+                <td class = "yellow">네트워크</td>
+            </tr>
+            <tr>
+                <th>2</th>
+                <td rowspan = "2" class = "yellow">데이터베이스개론</td>
+                <td></td>
+                <td></td>
+                <td class = "blue">운영체제</td>
+            </tr>
+            <tr>
+                <th>3</th>
+                <td></td>
+                <td class = "blue">운영체제</td>
+                <td></td>
+                <td rowspan = "4">사회봉사</td>
+            </tr>
+            <tr>
+                <th>4</th>
+                <td rowspan = "2" class = "blue">웹프로그래밍</td>
+                <td class = "gray">창의와 감성</td>
+                <td></td>
+                <td class = "gray">창의와 감성</td>
+            </tr>
+            <tr>
+                <th>5</th>
+                <td></td>
+                <td></td>
+                <td rowspan = "2" class = "blue">소프트웨어프로그래밍</td>
+            </tr>
+            <tr>
+                <th>6</th>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
