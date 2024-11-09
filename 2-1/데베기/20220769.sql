@@ -1,3 +1,4 @@
+-- 데베기 최종 프로젝트 과제
 create database ott;
 use ott;
 create table account
