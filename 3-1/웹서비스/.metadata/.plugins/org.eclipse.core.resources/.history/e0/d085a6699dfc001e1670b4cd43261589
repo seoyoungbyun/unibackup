@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="http://www.example.org/BookML/2.0" 
+				xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+				xsi:schemaLocation="http://www.example.org/BookML/2.0 BookML.xsd ">
+  <bookList>
+	 	<book isbn="895468000-3"> <!-- 문학/소설/한국소설에 속함 -->
+			<title>이토록 평범한 미래</title>
+			<author>김연수</author>
+			<publisher>문학동네</publisher>
+			<publishDate year="2022" month="10" day="07" />
+			<revisionDate year="2023" month="11" day="15" />
+			<price currency="won">
+				<listPrice>14000</listPrice>
+				<salesPrice discountRate="10">12600</salesPrice>
+			</price>
+			<pages>276</pages>
+			<rating>9.0</rating>
+			<category>c101-1-7</category>
+			<coverImage src="https://image.yes24.com/goods/113737429/XL" type="jpeg" />
+			<description>김연수 9년 만의 신작 소설집. 종말 이후의 사랑에 대한 여덟 편의 이야기. 
+			작가가 최근 2~3년간 집중적으로 단편 작업에 매진한 끝에 선보이는 소설집으로, '시간'을 인식하는 김연수의 변화된 시각을 확인할 수 있게 한다. 
+			김연수는 과거에서 미래를 향해 흐르는 것으로만 여겨지는 시간을 다르게 정의함으로써 우리가 현재의 시간을, 
+			즉 삶을 새롭게 상상할 수 있는 가능성을 아름답고 서정적인 언어로 설득해낸다. 특별한 점은 그 가능성이 '이야기'의 형태로 전달된다는 것이다. …
+			</description>
+			<review>"우리가 달까지 갈 수는 없지만 갈 수 있다는 듯이 걸어갈 수는 있다. 달이 어디에 있는지 찾을 수만 있다면. 
+			마찬가지로 우리는 달까지 걸어가는 것처럼 살아갈 수 있다. 희망의 방향만 찾을 수 있다면." (-&lt;진주의 결말&gt; 중에서) 
+			어떤 희망의 방향을 찾는 일은 때로 쉽고 어렵다. 이런 소설을 읽으면서 작은 격려와 응원을 받는 기분이다. 
+			좋은 소설에 대해, 우리가 기다렸던 소설이 이런 게 아닐까 싶다.</review>
+			<review>세계에 대한 인식은 곧 자기 인식이다. 내가 김연수 작가의 글을 통해 내 자신을 더 잘 알게 된 것처럼.</review>
+			<review>9년만의 신간 단편집. 시간을 소재로 어떻게 이야기를 풀어나갈지 자못 궁금하다. 그의 필력이 가볍지 않으니.</review>
+		</book>
+		<book isbn="895468000-5">
+			<title>2024 제15회 젊은작가상 수상작품집</title>
+			<author>김멜라</author>
+			<author>공현진</author>
+			<author>김기태</author>
+			<author>김남숙</author>
+			<author>김지연</author>
+			<author>성해나</author>
+			<author>전지영</author>
+			<publisher>문학동네</publisher>
+			<publishDate year="2024" month="03" day="31" />
+			<price currency="won">
+				<listPrice>7700</listPrice>
+				<salesPrice discountRate="10">6930</salesPrice>
+			</price>
+			<pages>372</pages>
+			<rating>9.3</rating>
+			<category>c101-1-1</category>
+			<description>2010년 제정된 이래 해를 거듭하며 독자들의 뜨거운 사랑을 받고 있는 젊은작가상이 어느덧 15회를 맞았다. 
+			저만의 문제의식과 치열한 언어로 문학의 지평을 넓혀온 데뷔 십 년 이하 작가들의 눈부신 발돋움을 조명하고자 
+			마련된 젊은작가상은 지난해까지 모두 62명에 이르는 새로운 얼굴을 소개하며 한국문학에 생기를 더했다.
+			</description>
+		</book>
+		<book isbn="978-893497246-4" xsi:type="eBookType">
+			 <title>사피엔스</title>
+			 <originalTitle>Sapiens: A Brief History of Humankind &amp; Earth</originalTitle>
+			 <author>유발 하라리</author>
+			 <translator>조현욱</translator>
+			 <publisher>김영사</publisher>
+			 <publishDate year="2015" month="11" day="23" />
+			 <revisionDate year="2023" month="01" day="20" />
+			 <revisionDate year="2023" month="04" day="14" />
+			 <price>
+				 <listPrice>15750</listPrice>
+			 </price>
+			 <pages>636</pages>
+			 <rating>9.2</rating>
+			 <category>c102-1</category>
+			 <category>c103-2</category>
+ 			 <description>변방의 유인원 호모 사피엔스는 어떻게 세상의 지배자가 되었는가? 수렵채집을 하던 우리 조상들은 어떻게 한 곳에 모여 도시와 왕국을 건설하였는가? 
+ 			 인간은 왜 지구 역사상 가장 치명적인 동물이 되었는가? 과학은 모든 종교의 미래인가? 인간의 유효기간은 언제까지인가? 
+ 			 멀고먼 인류의 시원부터 인지혁명, 농업혁명, 과학혁명을 거쳐 끊임없이 진화해온 인간의 역사를 
+ 			 생물학, 경제학, 종교학, 심리학, 철학 등 여러 학문의 경계를 넘나들며 다양하고 생생하게 조명한 전인미답의 문제작. 
+ 			 호모 사피엔스부터 인공지능까지, 기나긴 역사의 시간을 한 권으로 써내려간 문명 항해기. </description>
+ 			 <review>초반이 정말 흥미롭고 관점이 독특해서 완독할 수 있었다. 인문, 역사, 과학 지식 향연에 유머러스한 글쓰기 솜씨가 버무려지니, 
+ 			 후반의 급 마무리 느낌은 애교로 넘길 수 있을 정도.이만하면 구매할 가치가 충분하다. 잠시나마 만사 거시적으로 보이면서 약간 해탈하는 기분이 되는 효과는 덤.</review>
+ 			 <review>총균쇠를 읽고 재미를 느꼈다면 반드시 읽어야 할 책</review>
+			 <format value="EPUB" />
+ 			 <size unit="MB">26.60</size>
+ 	    </book>
+ 	    <book isbn="978-893497246-7" xsi:type="eBookType">
+			 <title>총, 균, 쇠</title>
+			 <originalTitle>Guns, Germs, and Steel: The Fates of Human Societies</originalTitle>
+			 <author>재레드 다이아몬드</author>
+			 <translator>강주헌</translator>
+			 <publisher>김영사</publisher>
+			 <publishDate year="2005" month="12" day="19" />
+			 <price>
+				 <listPrice>29800</listPrice>
+				 <salesPrice discountRate="10">26820</salesPrice>
+			 </price>
+			 <pages>784</pages>
+			 <rating>9.8</rating>
+			 <category>c102-1</category>
+			 <category>c103-2</category>
+ 			 <description>왜 어떤 국가는 부유하고 어떤 국가는 가난한가? 왜 어떤 민족은 다른 민족의 정복과 지배의 대상이 되었는가? 
+ 			 생물학, 지리학, 인류학, 역사학 등 다양한 학문의 융합을 통해 장대한 인류사를 풀어내며 오늘날 현대 세계가 불평등한 원인을 종합 규명한 혁신적 저작.</description>
+			 <format value="StreamText" />
+ 			 <size unit="MB">30.47</size>
+ 			 <period>30</period>
+ 	    </book>
+		<book isbn="978-890128069-1" xsi:type="newEBookType"> <!-- 신간 전자책; 인문/심리학 -->
+			<title>생각 중독: 불안과 후회를 끊어내고 오늘을 사는 법</title>
+			<originalTitle>Stop Overthinking</originalTitle>
+			<author>닉 트렌턴</author>
+			<translator>박지선</translator> <!-- 역자 -->
+			<publisher>갤리온</publisher>
+			<publishDate year="2024" month="02" day="29" />
+			<price currency="dollar">
+				 <listPrice>9.35</listPrice>
+			</price>
+			<pages>248</pages>
+			<rating>8.3</rating>
+			<category>c102-2</category>
+			<format value="pdf" />
+			<size unit="KB">83880</size>
+			<period>13</period>
+		</book>
+	 </bookList>
+	 <bookCategory xmlns:tns="http://www.example.org/BookML/2.0">
+		<category cid="c101" name="문학">
+			 <category cid="c101-1" name="소설">
+				 <category cid="c101-1-1" name="한국소설"></category>
+				 <category cid="c101-1-2" name="테스트"></category>
+			 </category>
+			<category cid="c101-2" name="시"></category>
+			<category cid="c101-3" name="희곡"></category>
+		</category>
+		<category cid="c102" name="인문">
+				<category cid="c102-1" name="철학/사상"></category>
+				<category cid="c102-2" name="심리학"></category>
+		</category>
+		<category cid="c103" name="역사">
+				 <category cid="c103-1" name="한국사"></category>
+				 <category cid="c103-2" name="세계사"></category>
+ 		</category>
+ </bookCategory>
+</catalog>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/addMenu"
+        android:title="도서 추가"/>
+    <item
+        android:id="@+id/introduceMenu"
+        android:title="개발자 소개" />
+    <item
+        android:id="@+id/search"
+        android:title="검색하기" >
+        <menu >
+            <item
+                android:id="@+id/TitleSearchMenu"
+                android:title="제목 검색" />
+            <item
+                android:id="@+id/AuthorSearchMenu"
+                android:title="저자 검색" />
+        </menu>
+    </item>
+    <item
+        android:id="@+id/exitMenu"
+        android:title="앱 종료" />
+</menu>

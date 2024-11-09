@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+C:\Users\qustj\OneDrive\바탕 화면\웹서\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+2159776681.index
+1723315590.index
+1205093156.index
+302252329.index
+4120038675.index
+319448402.index

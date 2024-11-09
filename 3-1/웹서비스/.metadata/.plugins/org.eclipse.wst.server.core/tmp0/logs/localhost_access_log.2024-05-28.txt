@@ -1,0 +1,6 @@
+0:0:0:0:0:0:0:1 - - [28/May/2024:00:10:50 +0900] "GET /AjaxLab/pizza_json/pizza_json.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [28/May/2024:00:11:01 +0900] "GET /AjaxLab/pizza_json/lookupCustomer_json.jsp?phone=010-111-1111 HTTP/1.1" 200 184
+0:0:0:0:0:0:0:1 - - [28/May/2024:00:12:02 +0900] "GET /AjaxLab/pizza_json/lookupCustomer_json.jsp?phone=010-222-2222 HTTP/1.1" 200 170
+0:0:0:0:0:0:0:1 - - [28/May/2024:00:12:39 +0900] "POST /AjaxLab/pizza_json/placeOrder_json.jsp HTTP/1.1" 200 7
+0:0:0:0:0:0:0:1 - - [28/May/2024:00:13:02 +0900] "GET /AjaxLab/pizza_json/pizza_json.html HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [28/May/2024:00:13:04 +0900] "GET /AjaxLab/pizza_json/lookupCustomer_json.jsp?phone=010-222-2222 HTTP/1.1" 200 179

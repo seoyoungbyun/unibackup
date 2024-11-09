@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+		targetNamespace="http://www.example.org/BookML/2.0" 
+		xmlns:tns="http://www.example.org/BookML/2.0"  
+		elementFormDefault="qualified">    
+	
+	<simpleType name="DiscountRateType">	<!-- 할인율 type정의:할인율은 0이상 90이하의 값을 갖도록 제한 -->
+		<restriction base="integer">
+			<minInclusive value="0"></minInclusive>
+			<maxInclusive value="90"></maxInclusive>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="ISBNType">	<!-- ISBN type 정의:식별자는 ISBN10/ISBN13 형식을 사용하도록하므로 패턴을 이용해 제한-->
+    	<restriction base="string">
+    		<pattern value="\d{9}-\d|(978|979)-\d{9}-\d"></pattern>
+    	</restriction>
+    </simpleType>
+    
+    <simpleType name="currencyType">	<!-- 통화 type 정의:원/달러/엔으로 표시하기 위해 enumeration으로 값 지정-->
+    	<restriction base="string">
+    		<enumeration value="won"></enumeration>
+    		<enumeration value="dollar"></enumeration>
+    		<enumeration value="yen"></enumeration>
+    	</restriction>
+    </simpleType>
+    
+    <simpleType name="pagesType">	<!-- 페이지수 type 정의:페이지수는 1이상 1000이하의 값이므로 제한-->
+    	<restriction base="integer">
+    		<minInclusive value="1"></minInclusive>
+    		<maxInclusive value="1000"></maxInclusive>
+    	</restriction>
+    </simpleType>
+
+    <simpleType name="ratingType">	<!-- 평점 type 정의:평점은 1이상 10이하의 값이므로 제한 -->
+    	<restriction base="double">
+    		<minInclusive value="1"></minInclusive>
+    		<maxInclusive value="10"></maxInclusive>
+    	</restriction>
+    </simpleType>
+    
+    <complexType name="priceType">	<!-- 가격 type 정의 -->
+    	<sequence>
+    		<element name="listPrice">	<!-- 가격은 정가와 판매가를 가짐 -->
+    			<simpleType>
+    				<restriction base="float">
+    					<minInclusive value="0"></minInclusive>
+    				</restriction>
+    			</simpleType>
+    		</element>
+    		<element name="salesPrice" type="tns:SalesPriceType" minOccurs="0"></element>
+    	</sequence>
+    	<attribute name="currency" type="tns:currencyType" default="won"></attribute>	<!-- 가격은 원/달러/엔으로 표시됨-->
+    </complexType>
+  
+    <notation name="jpeg" public="image/jpeg" system="imageViewer.exe"/>	<!-- 표지그림을 위한 notation선언 -->
+    <notation name="gif" public="image/gif" system="imageViewer.exe"/>
+    <notation name="png" public="image/png" system="imageViewer.exe"/>
+    
+    <simpleType name="coverType">
+    	<restriction base="NOTATION">
+    		<enumeration value="tns:jpeg"></enumeration>
+    		<enumeration value="tns:gif"></enumeration>
+    		<enumeration value="tns:png"></enumeration>
+    	</restriction>
+    </simpleType>
+    
+    <complexType name="coverImageType">		<!-- 표지그림 type 정의 -->
+    	<attribute name="src" type="anyURI"></attribute>
+    	<attribute name="type" type="tns:coverType"></attribute>
+    </complexType>
+    
+    <complexType name="fileSizeType">	<!-- 파일크기 type 정의 -->
+    	<simpleContent>
+    		<extension base="double">
+    			<attribute name="unit">
+	    			<simpleType>
+	    				<restriction base="string">	<!-- 파일크기 단위를 제한해 값 지정 -->
+	    					<enumeration value="KB"/>
+	    					<enumeration value="MB"/>
+	    					<enumeration value="GB"/>
+	    				</restriction>
+	    			</simpleType>
+    			</attribute>
+    		</extension>
+    	</simpleContent>
+    </complexType>
+	
+    <complexType name="BookType">	<!-- 도서 type 정의-각 도서는 다양한 정보를 가짐 -->
+    	<sequence>
+    		<element name="title" type="string"></element>
+    		<element name="originalTitle" type="string" minOccurs="0"></element>	<!-- 번역서 경우에만 사용하므로 originalTitle은 생략가능 -->
+    		<element name="author" type="string" maxOccurs="unbounded"></element>
+    		<element name="translator" type="string" minOccurs="0"></element>	<!-- 번역서 경우에만 사용하므로 translator은 생략가능 -->
+    		<element name="publisher" type="string"></element>
+    		<element ref="tns:publishDate"></element>
+    		<element ref="tns:revisionDate" minOccurs="0"
+    			maxOccurs="unbounded">
+    		</element>
+    		<element name="price" type="tns:priceType"></element>
+    		<element name="pages" type="tns:pagesType"></element>
+    		<element name="rating" type="tns:ratingType"></element>
+    		<element name="category" type="string"
+    			maxOccurs="unbounded">
+    		</element>
+    		<element name="coverImage" type="tns:coverImageType" minOccurs="0"></element>
+    		<element name="description" type="string" minOccurs="0"></element>
+    		<element name="review" type="string" minOccurs="0"
+    			maxOccurs="20">
+    		</element>
+    	</sequence>
+    	<attribute name="isbn" type="tns:ISBNType"></attribute>
+    </complexType>
+
+    <complexType name="CategoryType">	<!-- category가 자식으로 자기자신(category)를 가질 수 있도록 type 선언(재귀) -->
+    	<sequence>
+    		<element name="category" type="tns:CategoryType"
+    			minOccurs="0" maxOccurs="unbounded">
+    		</element>
+    	</sequence>
+
+    	<attribute name="cid" type="string"></attribute>
+    	<attribute name="name" type="string"></attribute>
+    </complexType>
+    
+    <element name="bookList">	<!-- 도서목록 선언(자식 엘리먼트/속성) -->
+    	<complexType>
+    		<sequence>
+    			<element name="book" type="tns:BookType" maxOccurs="unbounded"/>
+    		</sequence>
+    	</complexType>
+    </element>
+    
+    <element name="bookCategory">	<!-- 도서목록 선언(자식 엘리먼트/속성) -->
+    	<complexType>
+    		<sequence>
+    			<element name="category" type="tns:CategoryType" maxOccurs="unbounded"/>
+    		</sequence>
+    	</complexType>
+    	
+    	<key name="keyCategory">			<!-- category엘리먼트의 cid속성은 식별자이므로 유일해야함 -->
+    		<selector xpath=".//tns:category"/>
+    		<field xpath="./@tns:cid"/>
+    	</key>
+    </element>
+
+    <element name="catalog">
+    	<complexType>
+    		<sequence>
+    			<element ref="tns:bookList"></element>
+    			<element ref="tns:bookCategory"></element>
+    		</sequence>
+    	</complexType>
+    	
+    	<unique name="keyISBN">			<!-- 도서의 식별자(isbn)이므로 유일해야함 -->
+    		<selector xpath="./tns:bookList/tns:book"/>
+    		<field xpath="@tns:isbn"/>
+    	</unique>
+    	
+    	<keyref name="keyrefCategory" refer="tns:keyCategory">
+	    	<selector xpath="./tns:bookList/tns:book/tns:category"/>		<!-- book의 category 엘리먼트는 bookCateogry의 식별자를 참고해야함 -->
+			<field xpath="."/>
+    	</keyref>
+    </element>
+
+    <element name="publishDate">
+    	<complexType>
+            <attributeGroup ref="tns:dateAttrGroup"></attributeGroup>
+        </complexType>
+    </element>
+    
+    <element name="revisionDate">
+    	<complexType>
+            <attributeGroup ref="tns:dateAttrGroup"></attributeGroup>
+        </complexType>
+    </element>
+
+    <complexType name="SalesPriceType">
+    	<simpleContent>
+            <extension base="integer">
+    			<attribute name="discountRate" type="tns:DiscountRateType"></attribute>
+    		</extension>
+    	</simpleContent>
+    </complexType>
+
+
+    <attributeGroup name="dateAttrGroup">	<!-- 연/월/일은 각각 1900-2024/01-12/01-31의 값을 가질 수 있으므로 패턴을 이용해 제한 -->
+    	<attribute name="year">
+    		<simpleType>
+    			<restriction base="string">
+    				<pattern value="19[0-9][0-9]|20[0-1][0-9]|202[0-4]"></pattern>
+    			</restriction>
+    		</simpleType>
+    	</attribute>
+    	<attribute name="month">
+    		<simpleType>
+    			<restriction base="string">
+    				<pattern value="0[1-9]|1[0-2]"></pattern>
+    			</restriction>
+    		</simpleType>
+    	</attribute>
+    	<attribute name="day">
+    		<simpleType>
+    			<restriction base="string">
+    				<pattern value="0[1-9]|1[0-9]|2[0-9]|3[0-1]"></pattern>
+    			</restriction>
+    		</simpleType>
+    	</attribute>
+    </attributeGroup>
+
+    <complexType name="eBookType">	<!-- eBook은 book이 가진 정보에 더해 파일형식과 파일크기 이용기간이 추가되므로 extension을 이용해 추가함 -->
+    	<complexContent>
+    		<extension base="tns:BookType">
+    			<sequence>
+    				<element name="format" type="tns:fileFormatType"></element>
+    				<element name="size" type="tns:fileSizeType"></element>
+    				<element name="period" type="positiveInteger" minOccurs="0"></element>
+    			</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="fileFormatType">		<!-- 파일형식은 PDF,EPUB,StreamText,StreamImage 중 하나의 값을 가지므로 enumeration 이용해 제한하는 type 선언 -->
+    	<attribute name="value">
+	    	<simpleType>
+	    		<restriction base="string">
+	    			<enumeration value="pdf"/>
+	    			<enumeration value="PDF"/>
+	    			<enumeration value="EPUB"/>
+	    			<enumeration value="StreamText"/>
+	    			<enumeration value="StreamImage"/>
+	    		</restriction>
+	    	</simpleType>
+    	</attribute>
+    </complexType>
+	
+    <complexType name="newEBookType">	<!-- 신간 전자책은 이용기간이 최대 2주, 개정일은 존재할 수 없으므로 제한->엘리먼트 재선언 하면서 revisionDate 생략가능하도록 조정, period 최대값 조정 -->
+    	<complexContent>
+            <restriction base="tns:eBookType">
+            	<sequence>
+		    		<element name="title" type="string"></element>
+		    		<element name="originalTitle" type="string" minOccurs="0"></element>
+		    		<element name="author" type="string" maxOccurs="unbounded"></element>
+		    		<element name="translator" type="string" minOccurs="0"></element>
+		    		<element name="publisher" type="string"></element>
+		    		<element ref="tns:publishDate"></element>
+		    		<element ref="tns:revisionDate" minOccurs="0" maxOccurs="0"></element>
+		    		<element name="price" type="tns:priceType"></element>
+		    		<element name="pages" type="tns:pagesType"></element>
+		    		<element name="rating" type="tns:ratingType"></element>
+		    		<element name="category" type="string" maxOccurs="unbounded"></element>
+    				<element name="coverImage" type="tns:coverImageType" minOccurs="0"></element>
+    				<element name="description" type="string" minOccurs="0"></element>
+    				<element name="review" type="string" minOccurs="0" maxOccurs="20"></element>
+		    		<element name="format" type="tns:fileFormatType"></element>
+    				<element name="size" type="tns:fileSizeType"></element>
+    				<element name="period" minOccurs="0">
+    					<simpleType>
+	    					<restriction base="positiveInteger">
+	    						<maxInclusive value="14"></maxInclusive>
+	    					</restriction>
+    					</simpleType>
+    				</element>
+		    	</sequence>
+            </restriction>
+    	</complexContent>
+    </complexType>
+</schema>
