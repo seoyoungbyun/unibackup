@@ -96,18 +96,34 @@ function startOver() {
 */
 }
 
-function moveToOriginalPosition() { // 선택된 top5 아래의 하나의 이미지를 제자리로 이동시킴
-	var imgElement = this; 		// 선택된 <img> 엘리먼트
+function moveToOriginalPosition() { // 선택된 이미지를 제자리로 이동시킴
+	var imgElement = this; // 선택된 <img> 엘리먼트
+	var cds = document.getElementById("cds");
+	var cdsImg = cds.getElementsByTagName("img");
 
-	// imgElement의 순위를 나타내는 <span>을 삭제
-	
-	// cds의 <img>들 중 id 값이 imgElement의 id 값보다 크면서 가장 가까운 것을 찾아
-	// imgElement를 cds의 제 위치에 삽입 
-	
-	// cds의 <img>들 중 id 값이 imgElement보다 큰 것이 없을 경우 위에서 처리되지 않으므로 별도로 처리
-	
-	// top5 아래의 imgElement 다음에 있었던 이미지들의 순위 값을 변경
-	
+ 	// cds의 <img>들 중 id 값이 imgElement의 id 값보다 크면서 가장 가까운 것을 찾음
+	for (var i = 0; i < cdsImg.length; i++){
+		if (Number(cdsImg[i].id) > Number(imgElement.id))
+			break;
+	}
+ 	// imgElement의 순위를 나타내는 <span>을 삭제
+	var parent = imgElement.parentNode;
+	parent.removeChild(imgElement.previousSibling)
+	// imgElement를 cds의 제 위치에 삽입 (주의: imgElement가 마지막 이미지인 경우)
+	if (i < cdsImg.length)
+		cds.insertBefore(imgElement, cdsImg[i]);
+	else
+		cds.appendChild(imgElement)
 	// imgElement에 대해 onclick 이벤트 핸들러 재설정
-			
+	imgElement.onclick = addToTop5;
+	// top5 이미지들의 순위 값을 재계산하여 변경
+	var top5Element = document.getElementById("top5");
+	var rankSpans = top5Element.getElementsByClassName("rank");
+
+ 	for (var j = 0; j < rankSpans.length; j++) {
+		var newText = document.createTextNode(j + 1);
+		var oldText = rankSpans[j].firstChild
+		rankSpans[j].replaceChild(newText, oldText);
+	}
+
 }
