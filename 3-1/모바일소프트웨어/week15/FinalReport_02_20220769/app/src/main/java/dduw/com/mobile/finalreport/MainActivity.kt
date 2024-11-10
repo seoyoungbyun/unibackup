@@ -18,6 +18,7 @@ import dduw.com.mobile.finalreport.data.BookDto
 import dduw.com.mobile.finalreport.databinding.ActivityMainBinding
 import dduw.com.mobile.finalreport.databinding.ActivitySearchBinding
 
+//모바일소프트웨어 최종과제
 //과제명:도서 관리 앱
 //분반:02 분반
 //학번:20220769 성명:변서영

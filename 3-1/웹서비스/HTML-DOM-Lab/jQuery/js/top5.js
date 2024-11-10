@@ -96,9 +96,8 @@ function startOver() {
 */
 }
 
-function moveToOriginalPosition() { // 선택된 top5 아래의 하나의 이미지를 제자리로 이동시킴
+function moveToOriginalPosition() { // 선택된 이미지를 제자리로 이동시킴
 	var imgElement = this; 		// 선택된 <img> 엘리먼트
-
 	// imgElement의 순위를 나타내는 <span>을 삭제
 	
 	// cds의 <img>들 중 id 값이 imgElement의 id 값보다 크면서 가장 가까운 것을 찾아
@@ -107,7 +106,6 @@ function moveToOriginalPosition() { // 선택된 top5 아래의 하나의 이미
 	// cds의 <img>들 중 id 값이 imgElement보다 큰 것이 없을 경우 위에서 처리되지 않으므로 별도로 처리
 	
 	// top5 아래의 imgElement 다음에 있었던 이미지들의 순위 값을 변경
-	
+
 	// imgElement에 대해 onclick 이벤트 핸들러 재설정
-			
 }
